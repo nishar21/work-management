@@ -390,7 +390,7 @@ const Stock = () => {
     <div
       className="card-image"
       style={{ backgroundImage: `url(${school.image})` }}
-      onClick={(event) => event.stopPropagation()} // Prevent navigation
+      onClick={(event) => {event.stopPropagation(); handleCard(school.name)}} // Prevent navigation
     ></div>
     <div className="card-footer" onClick={(event) => event.stopPropagation()}> {/* Prevent navigation */}
       {school.name}

@@ -315,7 +315,7 @@ const Cs = () => {
         </header>
 
         {/* Action Buttons Container */}
-        <div className="action-buttons-container-cs">
+        {selector.userDetails.dept=="CSE" && <div className="action-buttons-container-cs">
           <div>
           <button className="pen-icon-button-cs" onClick={toggleEditDeleteButtons}>
             <AiOutlineEdit size={24} />
@@ -332,7 +332,7 @@ const Cs = () => {
               </button>
             </div>
           )}
-        </div>
+        </div>}
 
         <main className="content">
           <h2>Computer and Science</h2>

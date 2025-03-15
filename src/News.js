@@ -208,7 +208,7 @@ const News = () => {
         {menuOpen && (
           <div className="menu-popup">
           <button className="popup-item" onClick={handleHome}>📊 Dashboard</button>
-          <button className="popup-item" onClick={ticket}>🎟 Ticket</button>
+          {selector.userDetails.position!=="End User" && <button className="popup-item" onClick={ticket}>🎟 Ticket</button>}
           <button className="popup-item" onClick={handleProfile}>👤 Profile</button>
           <button className="popup-item" onClick={news}>📰 News</button>
           <button className="popup-item" onClick={handleReport}>📜 Report</button>
@@ -264,9 +264,9 @@ const News = () => {
         <div className="news-card">
           <div className="news-header">
             <h3>Latest Updates</h3>
-            <button className="add-button-news" onClick={() => { setModalOpen(true); resetForm(); }}>
+            {selector.userDetails.position!="End User" &&<button className="add-button-news" onClick={() => { setModalOpen(true); resetForm(); }}>
               ➕ Add Update
-            </button>
+            </button>}
           </div>
           {updates.map((update, index) => (
             <div key={index} className="news-item-news">
@@ -275,10 +275,10 @@ const News = () => {
                 <p className="news-meta">Completed at: {update.completionDate}</p>
                 <p className="news-description">{update.description}</p>
               </div>
-              <div className="news-actions-news">
+              {selector.userDetails.position!="End User" &&<div className="news-actions-news">
                 <FaEdit className="edit-icon-news" onClick={() => handleEdit(index)} />
                 <FaTrash className="delete-icon-news" onClick={() => handleDeleteClick(index)} />
-              </div>
+              </div>}
             </div>
           ))}
         </div>

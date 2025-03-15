@@ -315,7 +315,7 @@ const Law = () => {
         </header>
 
         {/* Action Buttons Container */}
-        <div className="action-buttons-container-cs">
+        {selector.userDetails.dept=="LAW" && <div className="action-buttons-container-cs">
           <div>
           <button className="pen-icon-button-cs" onClick={toggleEditDeleteButtons}>
             <AiOutlineEdit size={24} />
@@ -332,10 +332,10 @@ const Law = () => {
               </button>
             </div>
           )}
-        </div>
+        </div>}
 
         <main className="content">
-          <h2>Computer and Science</h2>
+          <h2>Law</h2>
 
           {data.length === 0 ? (
             <div className="empty-message">No classes added yet.</div>
